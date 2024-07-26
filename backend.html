@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Developers Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #333, #555);
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
+            background: linear-gradient(to right, #ff6384, #36a2eb);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: linear-gradient(to right, #36a2eb, #ff6384);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+        }
+
+        main {
+            padding: 2rem;
+            background: #fff;
+            margin: 2rem auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            font-size: 1.8rem;
+            color: #007BFF;
+        }
+
+        footer {
+            background: linear-gradient(to right, #333, #555);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p, footer a {
+            color: #fff;
+            margin: 0.5rem 0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ffce56;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        section#resources {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .resources-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-item {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        .resource-item h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .resource-item a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .resource-item a:hover {
+            text-decoration: underline;
+        }
+
+        .resource-item p {
+            margin: 0.5rem 0 0;
+            color: #666;
+        }
+
+        .resource-item:hover {
+            background-color: #e9ecef;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Backend Developers Analysis</h1>
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#trends">Trends</a></li>
+                <li><a href="#salary">Salary</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Backend developers are responsible for server-side web application logic and integration of the work front-end developers do. They typically write web services and APIs used by front-end developers and mobile application developers.</p>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="chart-container">
+                <canvas id="skillsChart"></canvas>
+            </div>
+        </section>
+        <section id="trends">
+            <h2>Trends</h2>
+            <p>Current trends in backend development include microservices architecture, serverless computing, and the increasing use of containerization technologies like Docker and Kubernetes.</p>
+            <div class="chart-container">
+                <canvas id="trendsChart"></canvas>
+            </div>
+        </section>
+        <section id="salary">
+            <h2>Salary</h2>
+            <p>Backend developers' salaries vary widely depending on location, experience, and skills. On average, a backend developer in the US earns between $70,000 and $120,000 per year.</p>
+            <div class="chart-container">
+                <canvas id="salaryChart"></canvas>
+            </div>
+        </section>
+        <section id="resources">
+            <h2>Resources</h2>
+            <ul class="resources-list">
+                <li class="resource-item">
+                    <h3><a href="https://www.udemy.com">Udemy</a></h3>
+                    <p>Online courses on a wide range of topics, including backend development.</p>
+                </li>
+                <li class="resource-item">
+                    <h3><a href="https://www.coursera.org">Coursera</a></h3>
+                    <p>Specialized courses and certifications from top universities and companies.</p>
+                </li>
+                <li class="resource-item">
+                    <h3><a href="https://www.pluralsight.com">Pluralsight</a></h3>
+                    <p>In-depth tech and development courses, including backend development.</p>
+                </li>
+                <li class="resource-item">
+                    <h3><a href="https://www.codecademy.com">Codecademy</a></h3>
+                    <p>Interactive coding lessons and projects in backend programming languages.</p>
+                </li>
+            </ul>
+        </section>
+        <section id="demographics">
+            <h2>Demographics</h2>
+            <p>Demographics of backend developers show a diverse group of professionals from various backgrounds. Below is a pie chart representing the distribution of backend developers by region.</p>
+            <div class="chart-container">
+                <canvas id="demographicsChart"></canvas>
+            </div>
+        </section>
+        <section id="experience">
+            <h2>Experience Levels</h2>
+            <p>Experience levels among backend developers vary, with a mix of junior, mid-level, and senior developers. The following chart illustrates the percentage distribution of experience levels.</p>
+            <div class="chart-container">
+                <canvas id="experienceChart"></canvas>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Backend Developers Analysis</p>
+        <p>Contact: <a href="mailto:info@backenddevs.com">info@backenddevs.com</a></p>
+        <p>Follow us on:
+            <a href="#">Twitter</a> |
+            <a href="#">LinkedIn</a> |
+            <a href="#">Facebook</a>
+        </p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctxSkills = document.getElementById('skillsChart').getContext('2d');
+            var skillsChart = new Chart(ctxSkills, {
+                type: 'bar',
+                data: {
+                    labels: ['Python', 'Java', 'Ruby', 'PHP', '.NET', 'Node.js'],
+                    datasets: [{
+                        label: 'Proficiency (%)',
+                        data: [85, 80, 75, 70, 65, 90],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            var ctxTrends = document.getElementById('trendsChart').getContext('2d');
+            var trendsChart = new Chart(ctxTrends, {
+                type: 'pie',
+                data: {
+                    labels: ['Microservices', 'Serverless', 'Containerization', 'API-first', 'Cloud-native'],
+                    datasets: [{
+                        data: [25, 20, 30, 15, 10],
+                        backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56', '#ff9f40'],
+                    }]
+                }
+            });
+
+            var ctxSalary = document.getElementById('salaryChart').getContext('2d');
+            var salaryChart = new Chart(ctxSalary, {
+                type: 'line',
+                data: {
+                    labels: ['2019', '2020', '2021', '2022', '2023'],
+                    datasets: [{
+                        label: 'Average Salary ($)',
+                        data: [70000, 75000, 80000, 85000, 90000],
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+
+            var ctxDemographics = document.getElementById('demographicsChart').getContext('2d');
+            var demographicsChart = new Chart(ctxDemographics, {
+                type: 'pie',
+                data: {
+                    labels: ['North America', 'Europe', 'Asia', 'South America', 'Africa', 'Oceania'],
+                    datasets: [{
+                        data: [40, 25, 20, 5, 5, 5],
+                        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff', '#ff9f40']
+                    }]
+                }
+            });
+
+            var ctxExperience = document.getElementById('experienceChart').getContext('2d');
+            var experienceChart = new Chart(ctxExperience, {
+                type: 'bar',
+                data: {
+                    labels: ['Junior', 'Mid-Level', 'Senior'],
+                    datasets: [{
+                        label: 'Experience Level (%)',
+                        data: [30, 50, 20],
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
